@@ -1,0 +1,40 @@
+{
+    "name":"nodeasync",
+    "description":"async event emitter, async array iterator",
+    "keywords":[
+        "nodejs",
+        "async",
+        "eventemitter",
+        "asynceventemitter",
+        "iterator",
+        "array",
+        "asynciterator"
+    ],
+    "version":"0.0.0",
+    "author":{
+        "name":"Node driver",
+        "email":"nodedriver@gmail.com"
+    },
+    "contributors":[
+    ],
+    "repository":{
+        "type":"git",
+        "url":"https://github.com/nodedriver/nodeasync.git"
+    },
+    "bugs":{
+        "url":"https://github.com/nodedriver/nodeasync/issues"
+    },
+    "dependencies":{
+
+    },
+
+    "main":"./nodeasync.js",
+    "engines":{
+        "node":">=0.6.19"
+    },
+    "readme":"async eventemitter\n =========\n\n\n  var EventEmitter = require('nodeasync').EventEmitter;\n\n\n   var myEmitter = new EventEmitter();\n myEmitter.on('save', function (param1, param2, param3, next) {\n     //do some async work here and call next\n     console.log('param1>>>' + JSON.stringify(param1));\n     next();\n })\n \n \n myEmitter.emit('save', {person:'A'}, function () {\n     //it will be called after calling each on for save\n     console.log('ok')\n })\n \n \n \n ===============================================\n \n var Iterator = require('nodeasync').Iterator;\n \n var emails = ['a@a.com', 'b@b.com'];\n \n var emailIterator = new Iterator(emails, function (index, emailid, next) {\n     //it will be called for each element in array\n     //after doing some async work call next\n     console.log(emailid)\n     next();\n \n \n });\n \n emailIterator.iterate(function (err) {\n     //it will be called after iterating each element\n     console.log('complete')\n })\n \n ",
+    "readmeFilename":"README.md",
+    "_id":"nodeasync@0.0.0"
+
+
+}
